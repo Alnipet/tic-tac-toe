@@ -41,8 +41,7 @@ function click(rowNumber, columnNumber) {
     let counterInColumn = 0;
 
     //проходим по строке поля, ищем выигрышную комбинацию
-    for (let indexInColumn in board[columnNumber]) {
-      let counterInLeftDiag = 0;
+    for (let indexInColumn = 0; indexInColumn < board.length; indexInColumn++) {
       if (board[indexInColumn][columnNumber] === players[activePlayer]) {
         counterInColumn++;
         if (counterInColumn === board.length) {

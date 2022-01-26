@@ -7,19 +7,22 @@
 </head>
 <body>
 
-<div id="board"></div>
+<div class="container">
+    <div id="board"></div>
+    <div class="panel">
+        <button class="reset">С начала</button>
+    </div>
+</div>
 
 <div id="modal" class="hidden">
-    <div id="modal__window">
+    <div id="modal__window" class="modal__window_hidden">
         <h2></h2>
         <div id="modal__buttons">
             <button class="reset">Играть еще</button>
         </div>
     </div>
 </div>
-<div class="panel">
-    <button class="reset">С начала</button>
-</div>
+
 
 <script src="logic.js"></script>
 <script src="ui.js"></script>
