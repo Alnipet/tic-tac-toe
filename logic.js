@@ -31,7 +31,7 @@ function click(rowNumber, columnNumber) {
       if (board[rowNumber][indexInRow] === players[activePlayer]) {
         counterInRow++;
         if (counterInRow === board[rowNumber].length) {
-          return true;
+          return rowNumber;
         }
       }
     }
@@ -45,7 +45,7 @@ function click(rowNumber, columnNumber) {
       if (board[indexInColumn][columnNumber] === players[activePlayer]) {
         counterInColumn++;
         if (counterInColumn === board.length) {
-          return true;
+          return columnNumber;
         }
       }
     }
@@ -53,6 +53,7 @@ function click(rowNumber, columnNumber) {
 
   function leftDiagValidation() {
     let counterInLeftDiag = 0;
+    let winsLeftDiag;
 
     //проходим по левой диагонали поля, ищем выигрышную комбинацию
     for (let indexLeftDiag in board[rowNumber]) {
@@ -60,7 +61,7 @@ function click(rowNumber, columnNumber) {
       if (board[indexLeftDiag][indexLeftDiag] === players[activePlayer]) {
         counterInLeftDiag++;
         if (counterInLeftDiag === board.length) {
-          return true;
+          return winsLeftDiag = true;
         }
       }
     }
@@ -69,6 +70,7 @@ function click(rowNumber, columnNumber) {
   function rightDiagValidation() {
     let counterInRightDiag = 0;
     let rowNumberDiag = 0;
+    let winsRightDiag;
 
     //проходим по правой диагонали поля, ищем выигрышную комбинацию
     for (let indexRightDiag = board[rowNumber].length - 1; indexRightDiag >= 0; indexRightDiag--) {
@@ -76,7 +78,7 @@ function click(rowNumber, columnNumber) {
         counterInRightDiag++;
         rowNumberDiag++;
         if (counterInRightDiag === board[rowNumber].length) {
-          return true;
+          return winsRightDiag = true;
         }
       }
     }

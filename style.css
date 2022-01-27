@@ -23,9 +23,12 @@
     justify-content: center;
 }
 
+.board-inner {
+    position: relative;
+}
 
 #board {
-    /*position: relative;*/
+    position: relative;
     height: 35vw;
     width: 35vw;
     margin: 0 auto 0 auto;
@@ -106,4 +109,15 @@ button:active {
 .modal__window_show {
     opacity: 1;
     visibility: visible;
+}
+
+#winning-line {
+    position:absolute;
+    top: 0;
+
+    width: 15px;
+    height: 35vw;
+    background-color: red;
+
+    z-index: 5000;
 }
