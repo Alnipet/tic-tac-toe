@@ -1,13 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap');
 
-
 * {
     box-sizing: border-box;
     font-family: 'Ubuntu', sans-serif;
-}
-
-html {
-
 }
 
 .panel {
@@ -77,10 +72,6 @@ html {
     background-color: #f8f6f6;
     text-align: center;
 
-    transition: opacity .5s, visibility .5s;
-
-    opacity: 0;
-    visibility: hidden;
 }
 
 button {
@@ -106,11 +97,13 @@ button:active {
 }
 
 .modal__window_hidden {
+    transition: opacity .5s, visibility .5s;
 
+    opacity: 0;
+    visibility: hidden;
 }
 
-/*.visible #modal__window {
-
-    visibility: visible;
+.modal__window_show {
     opacity: 1;
-}*/
+    visibility: visible;
+}
