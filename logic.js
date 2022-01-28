@@ -17,6 +17,8 @@ function startGame() {
 
 function click(rowNumber, columnNumber) {
 
+  let propertiesWinner;
+
   //записываем в массив результат события
   board[rowNumber][columnNumber] = players[activePlayer];
 
@@ -31,7 +33,7 @@ function click(rowNumber, columnNumber) {
       if (board[rowNumber][indexInRow] === players[activePlayer]) {
         counterInRow++;
         if (counterInRow === board[rowNumber].length) {
-          return rowNumber;
+          return propertiesWinner = {typeOfWinning: 'row', indexLine: rowNumber};
         }
       }
     }
@@ -45,7 +47,7 @@ function click(rowNumber, columnNumber) {
       if (board[indexInColumn][columnNumber] === players[activePlayer]) {
         counterInColumn++;
         if (counterInColumn === board.length) {
-          return columnNumber;
+          return propertiesWinner = {typeOfWinning: 'column', indexLine: columnNumber};
         }
       }
     }
@@ -53,7 +55,6 @@ function click(rowNumber, columnNumber) {
 
   function leftDiagValidation() {
     let counterInLeftDiag = 0;
-    let winsLeftDiag;
 
     //проходим по левой диагонали поля, ищем выигрышную комбинацию
     for (let indexLeftDiag in board[rowNumber]) {
@@ -61,7 +62,7 @@ function click(rowNumber, columnNumber) {
       if (board[indexLeftDiag][indexLeftDiag] === players[activePlayer]) {
         counterInLeftDiag++;
         if (counterInLeftDiag === board.length) {
-          return winsLeftDiag = true;
+          return propertiesWinner = {typeOfWinning: 'left', indexLine: null};
         }
       }
     }
@@ -70,7 +71,6 @@ function click(rowNumber, columnNumber) {
   function rightDiagValidation() {
     let counterInRightDiag = 0;
     let rowNumberDiag = 0;
-    let winsRightDiag;
 
     //проходим по правой диагонали поля, ищем выигрышную комбинацию
     for (let indexRightDiag = board[rowNumber].length - 1; indexRightDiag >= 0; indexRightDiag--) {
@@ -78,7 +78,7 @@ function click(rowNumber, columnNumber) {
         counterInRightDiag++;
         rowNumberDiag++;
         if (counterInRightDiag === board[rowNumber].length) {
-          return winsRightDiag = true;
+          return propertiesWinner = {typeOfWinning: 'right', indexLine: null};
         }
       }
     }
@@ -96,6 +96,7 @@ function click(rowNumber, columnNumber) {
   // проверяем есть ли выигрышные комбинации 
   if (rowValidation() || columnValidation() || leftDiagValidation() || rightDiagValidation()) {
     showWinner(activePlayer);
+    showWinningLine(propertiesWinner)
   }
   else {
     //победных комбинаций нет, меняем игрока

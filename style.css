@@ -114,10 +114,11 @@ button:active {
 #winning-line {
     position:absolute;
     top: 0;
+    left: 0;
 
-    width: 15px;
-    height: 35vw;
+    width: 35vw;
+    height: 15px;
     background-color: red;
 
-    z-index: 5000;
+    z-index: 1;
 }

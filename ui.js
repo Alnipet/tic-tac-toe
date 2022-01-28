@@ -11,10 +11,10 @@ for (let btn of resetButtons) {
   btn.addEventListener('click', function () {
     if (!modalEl.classList.contains('hidden')) {
       modalEl.classList.add('hidden');
-      //modalEl.classList.remove('visible');
 
       winningLineVisibility.classList.add('hidden');
       modalVisibility.classList.toggle('modal__window_show');
+      winningLineVisibility.style.top = `0`;
     }
     startGame();
   });
@@ -32,7 +32,6 @@ function showWinner(winner) {
   let header = modalEl.getElementsByTagName('h2')[0];
   header.textContent = `🍾 Победил игрок №${winner + 1}! 🍾`;
   modalEl.classList.remove('hidden');
-  //modalEl.classList.add('visible');
 
   winningLineVisibility.classList.remove('hidden');
   setTimeout(() => modalVisibility.classList.toggle('modal__window_show'), 100);
@@ -54,4 +53,11 @@ function renderBoard(board) {
     }
   }
   boardEl.innerHTML = fields.join('');
+}
+
+function showWinningLine(indexLine) {
+  console.log(indexLine)
+  if (indexLine.indexLine > 0) {
+    winningLineVisibility.style.top = `50%`;
+  }
 }
