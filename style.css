@@ -100,7 +100,7 @@ button:active {
 }
 
 .modal__window_hidden {
-    transition: opacity .5s, visibility .5s;
+    transition: opacity .5s, visibility 1.5s;
 
     opacity: 0;
     visibility: hidden;
@@ -111,14 +111,22 @@ button:active {
     visibility: visible;
 }
 
-#winning-line {
+.winning-line {
     position:absolute;
-    top: 0;
-    left: 0;
-
-    width: 35vw;
-    height: 15px;
+     
     background-color: red;
+}
 
-    z-index: 1;
+.winning-line.row-line {
+    width: 30vw;
+    height: 5px;
+
+    left: 2.5vw;
+}
+
+.winning-line.column-line {
+    width: 5px;
+    height: 30vw;
+
+    top: 2.5vw
 }
